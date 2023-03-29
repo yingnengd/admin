@@ -149,7 +149,7 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
         }
       }, {})
       ;(updateData["about"] = data.about),
-      (updateData["linkImage"] = data.linkImage),
+        (updateData["linkImage"] = data.linkImage),
         (updateData["feature1"] = data.feature1),
         (updateData["feature2"] = data.feature2),
         (updateData["feature3"] = data.feature3),
@@ -191,7 +191,7 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
         }
       }, {})
       ;(createData["about"] = data.about),
-      (createData["linkImage"] = data.linkImage),
+        (createData["linkImage"] = data.linkImage),
         (createData["feature1"] = data.feature1),
         (createData["feature2"] = data.feature2),
         (createData["feature3"] = data.feature3),
