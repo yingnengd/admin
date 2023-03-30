@@ -11,6 +11,7 @@ import Button from "../../fundamentals/button"
 import IconTooltip from "../../molecules/icon-tooltip"
 import InputField from "../../molecules/input"
 import Modal from "../../molecules/modal"
+import TextArea from "../../molecules/textarea"
 import Metadata, { MetadataField } from "../../organisms/metadata"
 
 type CollectionModalProps = {
@@ -269,8 +270,8 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
                   {...register("linkImage")}
                 />
               </div>
-              <div className="mt-4 flex items-center gap-x-base">
-                <InputField
+              <div className="mt-4 items-center gap-x-base">
+                <TextArea
                   label="About"
                   placeholder="Description Collection"
                   {...register("about")}
@@ -290,7 +291,7 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
                     />
                   </div>
                   <div className="mt-4">
-                    <InputField
+                    <TextArea
                       label={items.featureDesc}
                       placeholder="Description"
                       {...items.register2}
@@ -298,8 +299,8 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
                   </div>
                 </div>
               ))}
-              <div className="mt-4 flex items-center gap-x-base">
-                <InputField
+              <div className="mt-4 items-center gap-x-base">
+                <TextArea
                   label="Care Instructions"
                   placeholder="Description care instructions"
                   {...register("careinstructions")}
