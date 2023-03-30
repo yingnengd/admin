@@ -288,6 +288,8 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
                       placeholder="Title"
                       {...items.register}
                     />
+                  </div>
+                  <div className="mt-4">
                     <InputField
                       label={items.featureDesc}
                       placeholder="Description"
