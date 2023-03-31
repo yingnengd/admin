@@ -191,21 +191,35 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
           [next.key]: next.value,
         }
       }, {})
-      ;(createData["about"] = data.about),
-        (createData["linkImage"] = data.linkImage),
-        (createData["feature1"] = data.feature1),
-        (createData["feature2"] = data.feature2),
-        (createData["feature3"] = data.feature3),
-        (createData["feature4"] = data.feature4),
-        (createData["feature5"] = data.feature5),
-        (createData["feature6"] = data.feature6),
-        (createData["featureDesc1"] = data.featureDesc1),
-        (createData["featureDesc2"] = data.featureDesc2),
-        (createData["featureDesc3"] = data.featureDesc3),
-        (createData["featureDesc4"] = data.featureDesc4),
-        (createData["featureDesc5"] = data.featureDesc5),
-        (createData["featureDesc6"] = data.featureDesc6),
-        (createData["careinstructions"] = data.careinstructions),
+      ;(createData["about"] = data.about ? data.about : undefined),
+        (createData["linkImage"] = data.linkImage ? data.linkImage : undefined),
+        (createData["feature1"] = data.feature1 ? data.feature1 : undefined),
+        (createData["feature2"] = data.feature2 ? data.feature2 : undefined),
+        (createData["feature3"] = data.feature3 ? data.feature3 : undefined),
+        (createData["feature4"] = data.feature4 ? data.feature4 : undefined),
+        (createData["feature5"] = data.feature5 ? data.feature5 : undefined),
+        (createData["feature6"] = data.feature6 ? data.feature6 : undefined),
+        (createData["featureDesc1"] = data.featureDesc1
+          ? data.featureDesc1
+          : undefined),
+        (createData["featureDesc2"] = data.featureDesc2
+          ? data.featureDesc2
+          : undefined),
+        (createData["featureDesc3"] = data.featureDesc3
+          ? data.featureDesc3
+          : undefined),
+        (createData["featureDesc4"] = data.featureDesc4
+          ? data.featureDesc4
+          : undefined),
+        (createData["featureDesc5"] = data.featureDesc5
+          ? data.featureDesc5
+          : undefined),
+        (createData["featureDesc6"] = data.featureDesc6
+          ? data.featureDesc6
+          : undefined),
+        (createData["careinstructions"] = data.careinstructions
+          ? data.careinstructions
+          : undefined),
         create(
           {
             title: data.title,
