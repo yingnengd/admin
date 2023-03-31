@@ -149,35 +149,21 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
           [next.key]: next.value,
         }
       }, {})
-      ;(updateData["about"] = data.about ? data.about : undefined),
-        (updateData["linkImage"] = data.linkImage ? data.linkImage : undefined),
-        (updateData["feature1"] = data.feature1 ? data.feature1 : undefined),
-        (updateData["feature2"] = data.feature2 ? data.feature2 : undefined),
-        (updateData["feature3"] = data.feature3 ? data.feature3 : undefined),
-        (updateData["feature4"] = data.feature4 ? data.feature4 : undefined),
-        (updateData["feature5"] = data.feature5 ? data.feature5 : undefined),
-        (updateData["feature6"] = data.feature6 ? data.feature6 : undefined),
-        (updateData["featureDesc1"] = data.featureDesc1
-          ? data.featureDesc1
-          : undefined),
-        (updateData["featureDesc2"] = data.featureDesc2
-          ? data.featureDesc2
-          : undefined),
-        (updateData["featureDesc3"] = data.featureDesc3
-          ? data.featureDesc3
-          : undefined),
-        (updateData["featureDesc4"] = data.featureDesc4
-          ? data.featureDesc4
-          : undefined),
-        (updateData["featureDesc5"] = data.featureDesc5
-          ? data.featureDesc5
-          : undefined),
-        (updateData["featureDesc6"] = data.featureDesc6
-          ? data.featureDesc6
-          : undefined),
-        (updateData["careinstructions"] = data.careinstructions
-          ? data.careinstructions
-          : undefined),
+      ;(updateData["about"] = data.about ?? undefined),
+        (updateData["linkImage"] = data.linkImage ?? undefined),
+        (updateData["feature1"] = data.feature1 ?? undefined),
+        (updateData["feature2"] = data.feature2 ?? undefined),
+        (updateData["feature3"] = data.feature3 ?? undefined),
+        (updateData["feature4"] = data.feature4 ?? undefined),
+        (updateData["feature5"] = data.feature5 ?? undefined),
+        (updateData["feature6"] = data.feature6 ?? undefined),
+        (updateData["featureDesc1"] = data.featureDesc1 ?? undefined),
+        (updateData["featureDesc2"] = data.featureDesc2 ?? undefined),
+        (updateData["featureDesc3"] = data.featureDesc3 ?? undefined),
+        (updateData["featureDesc4"] = data.featureDesc4 ?? undefined),
+        (updateData["featureDesc5"] = data.featureDesc5 ?? undefined),
+        (updateData["featureDesc6"] = data.featureDesc6 ?? undefined),
+        (updateData["careinstructions"] = data.careinstructions ?? undefined),
         update(
           {
             title: data.title,
