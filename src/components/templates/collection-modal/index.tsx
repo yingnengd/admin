@@ -25,7 +25,10 @@ type CollectionModalFormData = {
   title: string
   handle: string | undefined
   about: unknown
-  linkImage: unknown
+  image1: unknown
+  image3: unknown
+  image2: unknown
+  image4: unknown
   feature1: unknown
   feature2: unknown
   feature3: unknown
@@ -98,6 +101,24 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
       register2: { ...register("featureDesc6") },
     },
   ]
+  const imageList = [
+    {
+      name: "Image No.1",
+      register: { ...register("image1") },
+    },
+    {
+      name: "Image No.2",
+      register: { ...register("image2") },
+    },
+    {
+      name: "Image No.3",
+      register: { ...register("image3") },
+    },
+    {
+      name: "Image No.4",
+      register: { ...register("image4") },
+    },
+  ]
   if (isEdit && !collection) {
     throw new Error("Collection is required for edit")
   }
@@ -113,7 +134,10 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
         title: collection.title,
         handle: collection.handle,
         about: collection.metadata.about,
-        linkImage: collection.metadata.linkImage,
+        image1: collection.metadata.image1,
+        image2: collection.metadata.image2,
+        image3: collection.metadata.image3,
+        image4: collection.metadata.image4,
         feature1: collection.metadata.feature1,
         feature2: collection.metadata.feature2,
         feature3: collection.metadata.feature3,
@@ -150,7 +174,10 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
         }
       }, {})
       ;(updateData["about"] = data.about),
-        (updateData["linkImage"] = data.linkImage),
+        (updateData["image1"] = data.image1),
+        (updateData["image2"] = data.image2),
+        (updateData["image3"] = data.image3),
+        (updateData["image4"] = data.image4),
         (updateData["feature1"] = data.feature1),
         (updateData["feature2"] = data.feature2),
         (updateData["feature3"] = data.feature3),
@@ -192,7 +219,10 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
         }
       }, {})
       ;(createData["about"] = data.about ? data.about : undefined),
-        (createData["linkImage"] = data.linkImage ? data.linkImage : undefined),
+        (createData["image1"] = data.image1 ? data.image1 : undefined),
+        (createData["image2"] = data.image2 ? data.image2 : undefined),
+        (createData["image3"] = data.image3 ? data.image3 : undefined),
+        (createData["image4"] = data.image4 ? data.image4 : undefined),
         (createData["feature1"] = data.feature1 ? data.feature1 : undefined),
         (createData["feature2"] = data.feature2 ? data.feature2 : undefined),
         (createData["feature3"] = data.feature3 ? data.feature3 : undefined),
@@ -277,19 +307,27 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
                   }
                 />
               </div>
-              <div className="mt-4 flex items-center gap-x-base">
-                <InputField
-                  label="Image"
-                  placeholder="Link Images"
-                  {...register("linkImage")}
-                />
-              </div>
               <div className="mt-4 items-center gap-x-base">
                 <TextArea
                   label="About"
                   placeholder="Description Collection"
                   {...register("about")}
                 />
+              </div>
+              <div className="my-4 rounded-lg border bg-transparent p-4">
+                <p className="text-lg font-bold">Collection Image</p>
+                {imageList.map((items: any, index: number) => (
+                  <div
+                    className="mt-4 flex items-center gap-x-base"
+                    key={index}
+                  >
+                    <InputField
+                      label={items.name}
+                      placeholder="Link Images"
+                      {...items.register}
+                    />
+                  </div>
+                ))}
               </div>
               {feature.map((items: any, index: number) => (
                 <div className="my-4 rounded-lg border bg-transparent p-4">
