@@ -25,6 +25,7 @@ type CollectionModalFormData = {
   title: string
   handle: string | undefined
   about: unknown
+  short_description: unknown
   image1: unknown
   image3: unknown
   image2: unknown
@@ -134,6 +135,7 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
         title: collection.title,
         handle: collection.handle,
         about: collection.metadata.about,
+        short_description: collection.metadata.short_description,
         image1: collection.metadata.image1,
         image2: collection.metadata.image2,
         image3: collection.metadata.image3,
@@ -174,6 +176,7 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
         }
       }, {})
       ;(updateData["about"] = data.about),
+        (updateData["short_description"] = data.short_description),
         (updateData["image1"] = data.image1),
         (updateData["image2"] = data.image2),
         (updateData["image3"] = data.image3),
@@ -219,6 +222,9 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
         }
       }, {})
       ;(createData["about"] = data.about ? data.about : undefined),
+        (createData["short_description"] = data.short_description
+          ? data.short_description
+          : undefined),
         (createData["image1"] = data.image1 ? data.image1 : undefined),
         (createData["image2"] = data.image2 ? data.image2 : undefined),
         (createData["image3"] = data.image3 ? data.image3 : undefined),
@@ -305,6 +311,13 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
                   tooltip={
                     <IconTooltip content="URL Slug for the collection. Will be auto generated if left blank." />
                   }
+                />
+              </div>
+              <div className="mt-4 items-center gap-x-base">
+                <TextArea
+                  label="Short Description"
+                  placeholder="Short Description Collection"
+                  {...register("short_description")}
                 />
               </div>
               <div className="mt-4 items-center gap-x-base">
