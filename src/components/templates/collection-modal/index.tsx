@@ -43,6 +43,8 @@ type CollectionModalFormData = {
   featureDesc3: unknown
   featureDesc4: unknown
   careinstructions: unknown
+  widthSize: unknown
+  heightSize: unknown
 }
 const CollectionModal: React.FC<CollectionModalProps> = ({
   onClose,
@@ -143,6 +145,8 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
         featureDesc3: collection.metadata.featureDesc3,
         featureDesc4: collection.metadata.featureDesc4,
         careinstructions: collection.metadata.careinstructions,
+        widthSize: collection.metadata.widthSize,
+        heightSize: collection.metadata.heightSize,
       })
 
       if (collection.metadata) {
@@ -158,6 +162,11 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
   }, [collection, isEdit])
 
   const submit = (data: CollectionModalFormData) => {
+    const string = "apple, orange, pear, banana, raspberry, peach"
+    const string2 = data.heightSize
+    const changeArray = string2.split(",")
+    console.log(changeArray)
+
     if (isEdit) {
       const updateData = metadata.reduce((acc, next) => {
         return {
@@ -184,6 +193,8 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
         (updateData["featureDesc3"] = data.featureDesc3),
         (updateData["featureDesc4"] = data.featureDesc4),
         (updateData["careinstructions"] = data.careinstructions),
+        (updateData["widthSize"] = data.widthSize),
+        (updateData["heightSize"] = data.heightSize),
         update(
           {
             title: data.title,
@@ -242,26 +253,30 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
         (createData["careinstructions"] = data.careinstructions
           ? data.careinstructions
           : undefined),
-        create(
-          {
-            title: data.title,
-            handle: data.handle,
-            metadata: createData,
+        (createData["widthSize"] = data.widthSize ? data.widthSize : undefined),
+        (createData["heightSize"] = data.heightSize
+          ? data.heightSize
+          : undefined)
+      create(
+        {
+          title: data.title,
+          handle: data.handle,
+          metadata: createData,
+        },
+        {
+          onSuccess: () => {
+            notification(
+              "Success",
+              "Successfully created collection",
+              "success"
+            )
+            onClose()
           },
-          {
-            onSuccess: () => {
-              notification(
-                "Success",
-                "Successfully created collection",
-                "success"
-              )
-              onClose()
-            },
-            onError: (error) => {
-              notification("Error", getErrorMessage(error), "error")
-            },
-          }
-        )
+          onError: (error) => {
+            notification("Error", getErrorMessage(error), "error")
+          },
+        }
+      )
     }
   }
 
@@ -366,6 +381,23 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
                   placeholder="Description care instructions"
                   {...register("careinstructions")}
                 />
+              </div>
+              <div className="my-4 rounded-lg border bg-transparent p-4">
+                <p className="text-lg font-bold">Size Guide</p>
+                <div className="mt-4">
+                  <TextArea
+                    label="Width, in"
+                    placeholder="Width size [XS, S, M, L, XL, 2XL]"
+                    {...register("widthSize")}
+                  />
+                </div>
+                <div className="mt-4">
+                  <TextArea
+                    label="Height, in"
+                    placeholder="Height size [XS, S, M, L, XL, 2XL]"
+                    {...register("heightSize")}
+                  />
+                </div>
               </div>
             </div>
             <div className="mt-xlarge w-full">
