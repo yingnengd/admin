@@ -32,6 +32,8 @@ Medusa is an open-source headless commerce engine that enables developers to cre
 Follow our [quickstart guide](https://docs.medusajs.com/quickstart/quick-start) to learn how to set up a Medusa server.
 
 
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yingnengd/admin-medusa)
+
 ## Setting up Admin
 
 1. **Clone this repository**
